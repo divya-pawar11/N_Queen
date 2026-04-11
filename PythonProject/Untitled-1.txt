@@ -1,0 +1,34 @@
+syntax = "proto3";
+
+service ExamService {
+  rpc RegisterStudent(StudentRequest) returns (Response);
+  rpc SubmitAnswer(AnswerRequest) returns (Response);
+  rpc GetResult(ResultRequest) returns (ResultResponse);
+  rpc ReportCheating(CheatRequest) returns (Response);
+}
+
+message StudentRequest {
+  string rollno = 1;
+  string name = 2;
+}
+
+message AnswerRequest {
+  string rollno = 1;
+  int32 marks = 2;
+}
+
+message ResultRequest {
+  string rollno = 1;
+}
+
+message CheatRequest {
+  string rollno = 1;
+}
+
+message Response {
+  string message = 1;
+}
+
+message ResultResponse {
+  string result = 1;
+}
